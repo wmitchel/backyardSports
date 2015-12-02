@@ -1,0 +1,15 @@
+<template name="viewEvents">
+	<div class="row">
+		<table>
+			<th>All Events</th>
+			<span class="text"><strong>{{username}}</strong></span>
+			{{#each event in events}}
+				<tr>
+					<td>{{event.title}}</td>
+					<td>{{event.date}}</td>
+					<td>{{event.summary}}</td>
+				</tr>
+			{{/each}}
+		</table>
+	</div>
+</template>

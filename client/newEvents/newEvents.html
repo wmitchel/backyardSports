@@ -1,0 +1,10 @@
+<template name="newEvent">
+	<div class="row">
+			{{# autoForm collection="Games" id="insertGameForm" type="insert" class="form-horizontal" placeholder="schemaLabel"}}
+				{{#each afFieldNames}}
+					{{> afQuickField name=this.name options=afOptionsFromSchema}}
+				{{/each}}
+			<button type="submit" class="btn btn-primary">Insert</button>
+			{{/autoForm}}
+	</div>
+</template>
