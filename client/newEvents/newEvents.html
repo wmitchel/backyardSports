@@ -1,4 +1,4 @@
-<template name="newEvent">
+<!-- <template name="newEvent">
 	<div class="col-xs-6">
 			{{# autoForm collection="Games" id="insertGameForm" type="insert" class="form-horizontal"}}
 				{{#each afFieldNames}}
@@ -7,14 +7,35 @@
 			<button  id="event-submit" type="submit" class="btn btn-primary">Create</button>
 			{{/autoForm}}
 	</div>
-	<form id="newGameForm" action="action" role="form">
+	 <form id="newGameForm" action="action" role="form">
 		<label></label>
 	</form>
-</template>
+</template> -->
 
-<!-- <template name="newEvent">
-	<form id="newEventForm" action="action" role="form">
-		<input type="" />
+<template name="newEvent">
+	<form id="newEventForm" role="form" class="col-xs-6">
+
+		<label>Title</label>
+		<input id="eventTitle" class="form-control" type="text" placeholder="Give 'er a name." required>
+
+		<label>Date</label>
+		<div class="input-group datetimepicker">
+			<span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+			<input id="eventDate" class="set-due-date form-control" type="text"/>
+		</div>
+
+		<label>Brief Summary</label>
+		<input id="eventSummary" class="form-control" type="text" placeholder="What's going to happen?">
+
+		<label>Sport</label>
+		<select class="form-control" id="eventSport">
+			{{#each index in options}}
+				<option value="{{index.value}}">{{index.value}}</option>
+			{{/each}}
+		</select>
+
+
+		<!-- <input type="" />
 		<select id="deviceType" name="deviceType">
 			{{#each index in deviceData}}
 				<option value="{{index.serialNumber}}">{{index.make}}, {{index.model}}, {{index.serialNumber}}</option>
@@ -25,12 +46,12 @@
 			{{#each index in staffData}}
 				<option value="{{index._id}}">{{index.profile.fName}}, {{index.profile.lName}}</option>
 			{{/each}}
-		</select>
+		</select> -->
 
-		<input type="submit" id="insertAssignment" value="Add Assignment" class="btn btn-default"/>
+		<input type="submit" id="insertAssignment" value="Create Event" class="btn btn-default centerBlock"/>
 	</form>
 </template>
 
 
-<label>Model</label>
+<!-- <label>Model</label>
 <input type="text" id="model" placeholder="Model" value="{{model}}"> -->
