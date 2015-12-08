@@ -1,10 +1,36 @@
 <template name="newEvent">
-	<div class="row">
-			{{# autoForm collection="Games" id="insertGameForm" type="insert" class="form-horizontal" placeholder="schemaLabel"}}
+	<div class="col-xs-6">
+			{{# autoForm collection="Games" id="insertGameForm" type="insert" class="form-horizontal"}}
 				{{#each afFieldNames}}
 					{{> afQuickField name=this.name options=afOptionsFromSchema}}
 				{{/each}}
-			<button type="submit" class="btn btn-primary">Insert</button>
+			<button  id="event-submit" type="submit" class="btn btn-primary">Create</button>
 			{{/autoForm}}
 	</div>
+	<form id="newGameForm" action="action" role="form">
+		<label></label>
+	</form>
 </template>
+
+<!-- <template name="newEvent">
+	<form id="newEventForm" action="action" role="form">
+		<input type="" />
+		<select id="deviceType" name="deviceType">
+			{{#each index in deviceData}}
+				<option value="{{index.serialNumber}}">{{index.make}}, {{index.model}}, {{index.serialNumber}}</option>
+			{{/each}}
+		</select>
+
+		<select id="staff" name="staff">
+			{{#each index in staffData}}
+				<option value="{{index._id}}">{{index.profile.fName}}, {{index.profile.lName}}</option>
+			{{/each}}
+		</select>
+
+		<input type="submit" id="insertAssignment" value="Add Assignment" class="btn btn-default"/>
+	</form>
+</template>
+
+
+<label>Model</label>
+<input type="text" id="model" placeholder="Model" value="{{model}}"> -->
