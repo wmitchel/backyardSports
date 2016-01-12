@@ -1,24 +1,13 @@
 Template.userEvents.helpers({
 	events: function() {
-		//var buttonId = e.currentTarget.id;
-		//Session.set("joinId", buttonId);
+		let temp = Meteor.users.findOne({_id: Meteor.userId()});
+		let name = temp.username;
 
-		//var query = "{ " + buttonId + ": "
-		var inGames = Games.find({ "attendees" : Meteor.userId() });
-		// for (var i = 0; i < inGames.length; i++) {
-		// 	var temp = Meteor.users.find({_id : inGames.attendees[i]});
-		// 	console.log(temp);
-		// 	console.log("test");
-		// 	inGames.attendees[i] = temp.username;
-
-		// };
+		var inGames = Games.find( { $or: [{ "attendees" : Meteor.userId() }, { "attendees" : name} ] });
 		return inGames;
-
-		//Router.go('/updateDevice');
 	},
 	othersAttending: function() {
 		var inGames = Games.find({ "attendees" : Meteor.userId() });
-
 	}
 });
 
@@ -27,7 +16,11 @@ Template.userEvents.events({
 		var buttonId = e.currentTarget.id;
 		var attendee = Meteor.userId();
 		Games.update({_id: buttonId}, {$pull : {attendees : attendee}});
-		//var inGames = Games.find({ "attendeed" : buttonId });
+	},
+	"click .details": function(e){
+		var buttonId = e.currentTarget.id;
+		Session.set("detailId", buttonId);
+		Router.go('/eventDetails');
 	}
 });
 

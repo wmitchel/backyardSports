@@ -4,21 +4,19 @@ Template.viewEvents.helpers({
 	}
 });
 
-
-
-// mongo addToSet Command
-
-
-
 Template.viewEvents.events({
 	 "click .join": function(e) {
 		var buttonId = e.currentTarget.id;
-		//Session.set("joinId", buttonId);
+		let temp = Meteor.users.findOne({_id: Meteor.userId()});
+		let name = temp.username;
+		console.log(temp.username);
+		console.log(temp);
 
-		//var query = "{ " + buttonId + ": "
-		Games.update( buttonId, { $addToSet : { attendees : Meteor.userId() }} );
-
-
-		//Router.go('/updateDevice');
+		Games.update( buttonId, { $addToSet : { attendees : name}} );
+	},
+	"click .details": function(e){
+		var buttonId = e.currentTarget.id;
+		Session.set("detailId", buttonId);
+		Router.go('/eventDetails');
 	}
 });

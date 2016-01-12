@@ -1,12 +1,6 @@
 <template name="viewEvents">
 	<div class="box">
 		<div class="results">
-
-			<!-- {{#each events}}
-			<p class="btn-join"> testing </p>
-
-			{{/each}} -->
-
 			<table>
 				<tr>
 					<td>Title</td>
@@ -14,6 +8,7 @@
 					<td>Date</td>
 					<td>Summary</td>
 					<td>Join</td>
+					<td>Details</td>
 				</tr>
 				{{#each event in events}}
 					<tr>
@@ -22,6 +17,7 @@
 						<td>{{event.date}}</td>
 						<td>{{event.summary}}</td>
 						<td><button class="join" id="{{event._id}}">Join</button></td>
+						<td><button class="details" id="{{event._id}}">Details</button></td>
 					</tr>
 				{{/each}}
 			</table> 

@@ -11,7 +11,7 @@ Template.newEvent.events({
 			title: t.find('#eventTitle').value,
 			date: t.find('#eventDate').value,
 			summary: t.find('#eventSummary').value,
-			attendees: [Meteor.userId()],
+			attendees: [Meteor.userId().username],
 			sport: t.find('#eventSport').value
 		};
 

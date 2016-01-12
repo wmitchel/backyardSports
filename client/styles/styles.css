@@ -1,0 +1,152 @@
+/* newEvents.css */
+.centerBlock {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 1.2rem;
+}
+
+/* layout.css */
+#content {
+/*    padding-top: 55px;
+*/    margin-top: 55px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+.navbar-nav li button {
+ line-height: 35px;
+}
+
+/* viewEvents.css */
+.results {
+	margin:0px;padding:0px;
+	width:100%;
+	box-shadow: 10px 10px 5px #888888;
+	border:1px solid #1e0202;
+}
+.results table{
+    border-collapse: collapse;
+        border-spacing: 0;
+	width:100%;
+	height:100%;
+	margin:0px;padding:0px;
+}
+.results tr:nth-child(odd) { 
+	background-color:#e5e5e5; 
+}
+
+.results tr:nth-child(even) { 
+	background-color:#ffffff; 
+}
+
+.results td{
+	vertical-align:middle;
+	
+	
+	border:1px solid #1e0202;
+	border-width:0px 1px 1px 0px;
+	text-align:center;
+	padding:7px;
+	font-size:10px;
+	font-family:Arial;
+	font-weight:normal;
+	color:#000000;
+}
+
+.results tr:first-child td{
+	background:-o-linear-gradient(bottom, #00bf00 5%, #00bf00 100%);	
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #00bf00), color-stop(1, #00bf00) );
+	background:-moz-linear-gradient( center top, #00bf00 5%, #00bf00 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr="#00bf00", endColorstr="#00bf00");	
+	background: -o-linear-gradient(top,#00bf00,00bf00);
+
+	background-color:#00bf00;
+	border:0px solid #1e0202;
+	text-align:center;
+	border-width:0px 0px 1px 1px;
+	font-size:14px;
+	font-family:Arial;
+	font-weight:bold;
+	color:#ffffff;
+}
+
+
+
+/* app background */
+body {
+	background: url('/background.jpg');
+}
+
+.login {
+  margin:0 auto;
+  max-width:500px;
+}
+
+.login-header {
+  color:#000000;
+  text-align:center;
+  font-size:300%;
+}
+
+.login-header h1 {
+   text-shadow: 0px 5px 15px #000;
+}
+
+.login-form {
+  border:2px solid #999;
+  background:#2c3e50;
+  border-radius:10px;
+  box-shadow:0px 0px 10px #000;
+}
+
+.login-form h3 {
+  text-align: left;
+  margin-left:40px;
+  color:#ffffff;
+}
+
+.login-form {
+
+	padding-top:15px;
+	margin:50px auto;
+	text-align:center;
+	overflow: hidden;
+}
+
+.login-form input[type="username"],
+.login-form input[type="password"],
+.login-form input[type="text"] {
+	text-align: center;
+	width: 100%;
+	max-width:400px;
+	height:30px;
+	font-family: 'Ubuntu', sans-serif;
+	border-radius:5px;
+	border:2px solid #f2f2f2;
+	outline:none;
+	padding-left:10px;
+	margin: 0 auto;
+	float: none;
+}
+
+.login-form input[type="submit"] {
+	height:30px;
+	width:100px;
+	background:#ffffff;
+	border:1px solid #f2f2f2;
+	border-radius:20px;
+	color: slategrey;
+	text-transform:uppercase;
+	font-family: 'Ubuntu', sans-serif;
+	cursor:pointer;
+}
+
+@media only screen and (min-width : 150px) and (max-width : 530px){
+  .login-form h3 {
+    text-align:center;
+    margin:0;
+  }
+  .login-button {
+    margin-bottom:10px;
+  }
+}

@@ -29,3 +29,7 @@ accounts-base
 accounts-password
 accounts-ui-unstyled
 insecure
+alanning:roles
+random
+email
+momentjs:moment

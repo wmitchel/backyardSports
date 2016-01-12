@@ -7,7 +7,7 @@
 					<td>Sport</td>
 					<td>Date</td>
 					<td>Summary</td>
-					<!-- <td>Attending</td> -->
+					<td>Details</td>
 					<td>Leave</td>
 				</tr>
 				{{#each event in events}}
@@ -16,7 +16,7 @@
 						<td>{{event.sport}}</td>
 						<td>{{event.date}}</td>
 						<td>{{event.summary}}</td>
-						<!-- <td>{{event.attendees}}</td> -->
+						<td><button class="details" id="{{event._id}}">Details</button></td>
 						<td><button class="leave" id="{{event._id}}">Leave</button></td>
 					</tr>
 				{{/each}}
