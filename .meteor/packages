@@ -28,7 +28,6 @@ tsega:bootstrap3-datetimepicker@=3.1.3_3
 accounts-base
 accounts-password
 accounts-ui-unstyled
-insecure
 alanning:roles
 random
 email

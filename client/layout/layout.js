@@ -5,6 +5,6 @@ Template.layout.events({
 	'click .logout': function(event){
 		//event.preventDefalut();
 		Meteor.logout();
-		Router.go('dashboard');
+		Router.go('landing');
 	}
 });

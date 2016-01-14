@@ -13,9 +13,8 @@ Template.userEvents.helpers({
 
 Template.userEvents.events({
 	 "click .leave": function(e) {
-		var buttonId = e.currentTarget.id;
-		var attendee = Meteor.userId();
-		Games.update({_id: buttonId}, {$pull : {attendees : attendee}});
+		let buttonId = e.currentTarget.id;
+		Meteor.call("leaveEvent", buttonId);
 	},
 	"click .details": function(e){
 		var buttonId = e.currentTarget.id;
