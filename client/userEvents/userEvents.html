@@ -1,26 +1,28 @@
 <template name="userEvents">
-	<div class="box">
-		<div class="results">
-			<table>
+	<div class="container">
+		<table class="table table-hover">
+			<thead>
 				<tr>
-					<td>Title</td>
-					<td>Sport</td>
-					<td>Date</td>
-					<td>Summary</td>
-					<td>Details</td>
-					<td>Leave</td>
+					<th>Title</th>
+					<th>Sport</th>
+					<th>Date</th>
+					<th>Summary</th>
+					<th>Details</th>
+					<th>Leave</th>
 				</tr>
+			</thead>
+			<tbody>
 				{{#each event in events}}
 					<tr>
 						<td>{{event.title}}</td>
 						<td>{{event.sport}}</td>
-						<td>{{event.date}}</td>
+						<td>{{formatDate event.date}}</td>
 						<td>{{event.summary}}</td>
-						<td><button class="details" id="{{event._id}}">Details</button></td>
-						<td><button class="leave" id="{{event._id}}">Leave</button></td>
+						<td><button class="details btn btn-info" id="{{event._id}}">Details</button></td>
+						<td><button class="leave btn btn-danger" id="{{event._id}}">Leave</button></td>
 					</tr>
 				{{/each}}
-			</table> 
-		</div>
+			</tbody>
+		</table>
 	</div>
 </template>

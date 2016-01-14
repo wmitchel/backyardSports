@@ -15,3 +15,7 @@ Template.viewEvents.events({
 		Router.go('/eventDetails');
 	}
 });
+
+Template.registerHelper('formatDate', function(date) {
+	return moment(date).format('MM-DD-YYYY');
+})
