@@ -21,5 +21,8 @@ Meteor.methods({
 		let temp = Meteor.users.findOne({_id: Meteor.userId()});
 		let name = temp.username;
 		Games.update({_id: buttonId}, {$pull : {attendees : name}});
+	},
+	newComment: function(comment) {
+		Comments.insert(comment);
 	}
 });
