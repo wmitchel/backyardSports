@@ -1,6 +1,8 @@
 Template.layout.events({
 	'click a': function(){
-		Template.instance().$("#nav-button").click();
+		if ($(window).width() < 768) {
+			Template.instance().$("#nav-button").click();
+		};
 	},
 	'click .logout': function(event){
 		//event.preventDefalut();

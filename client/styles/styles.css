@@ -20,11 +20,19 @@
 	text-align: center;
 }
 
+/* Event Detail Stylings */
+.eventInfo {
+	text-align: center;
+}
+
 /* join and details classes */
 .join, .details{
 	vertical-align: center;
 }
 
+#insertAssignment {
+	margin-bottom: 2rem;
+}
 
 /* app background */
 body {

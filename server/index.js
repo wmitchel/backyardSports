@@ -1,0 +1,1 @@
+//Games._ensureIndex({'location' : '2dsphere'});

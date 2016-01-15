@@ -1,6 +1,8 @@
 Template.viewEvents.helpers({
 	events: function() {
-		return Games.find();
+		let date = new Date();
+		let games = Games.find({"date" : { $gte : date } });
+		return games;
 	}
 });
 
