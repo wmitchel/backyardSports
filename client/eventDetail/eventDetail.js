@@ -21,8 +21,8 @@ Template.eventDetail.helpers({
 Template.eventDetail.events({
 	'submit #addCommentForm' : function(e, t) {
 		e.preventDefault();
-		let temp = Meteor.users.findOne({_id: Meteor.userId()});
-		let name = temp.username;
+		let foundUser = Meteor.users.findOne({_id: Meteor.userId()});
+		let name = foundUser.username;
 		let detailSession = Session.get("detailId");
 
 		let comment = {
