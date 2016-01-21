@@ -12,7 +12,7 @@
 </template>
 
 <template name="nav">
-	<nav class="navbar navbar-default navbar-fixed-top navbar-inverse">
+	<nav class="navbar navbar-default navbar-fixed-top">
 			<div class="container-fluid">
 				<div class="navbar-header">
 					<button id="nav-button" type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#top-navigation" aria-expanded="false">
@@ -21,20 +21,21 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 					</button>
-					<a class="navbar-brand" href="/">Backyard Sports</a>
+					<a class="navbar-brand" href="/">
+						<i class="fa fa-futbol-o"></i>Backyard Sports</a>
 				</div><!-- /.navbar-header -->
 				<div class="collapse navbar-collapse" id="top-navigation">
 					<ul class="nav navbar-nav navbar-right">
 						{{#if currentUser}}
 							<li class="dropdown">
-								<button class="btn btn-info dropdown-toggle btn-block" type="button" data-toggle="dropdown">View<span class="caret"></span></button>
+								<button class="btn btn-primary dropdown-toggle btn-block outline" type="button" data-toggle="dropdown">View<span class="caret"></span></button>
 								<ul class="dropdown-menu">
 									<li><a href="{{pathFor route='userEvents'}}">Your Events</a></li>
 									<li><a href="{{pathFor route='viewEvents'}}">All Events</a></li>
 								</ul>
 							</li>
 							<li class="dropdown">
-								<button class="btn btn-info dropdown-toggle btn-block" type="button" data-toggle="dropdown">Add<span class="caret"></span></button>
+								<button class="btn btn-primary dropdown-toggle btn-block outline" type="button" data-toggle="dropdown">Add<span class="caret"></span></button>
 								<ul class="dropdown-menu">
 									<li><a href="{{pathFor route='newEvent'}}">New Event</a></li>
 								</ul>
@@ -42,12 +43,12 @@
 						{{/if}}
 						<li class="dropdown">
 							{{#if currentUser}}
-								<button class="btn btn-info dropdown-toggle loginDrop btn-block" type="button" data-toggle="dropdown">{{currentUser.profile.fName}}<span class="caret"></span></button>
+								<button class="btn btn-primary dropdown-toggle loginDrop btn-block outline" type="button" data-toggle="dropdown">{{currentUser.profile.fName}}<span class="caret"></span></button>
 								<ul class="dropdown-menu">
 									<li><a href="/" class="logout">Logout</a></li>
 								</ul>
 							{{else}}
-								<button class="btn btn-info dropdown-toggle loginDrop btn-block" type="button" data-toggle="dropdown">Register / Login<span class="caret"></span></button>
+								<button class="btn btn-primary dropdown-toggle loginDrop btn-block" type="button outline" data-toggle="dropdown">Register / Login<span class="caret"></span></button>
 								<ul class="dropdown-menu">
 									<li><a href="{{pathFor route='login'}}">Login</a></li>
 									<li><a href="{{pathFor route='register'}}">Register</a></li>

@@ -1,29 +1,78 @@
 <template name="viewEvents">
 	<div class="container">
-		<h4>Take a look at all upcoming events.</h4>
-		<table class="table table-hover">
-			<thead>
-				<tr>
-					<th>Title</th>
-					<th>Sport</th>
-					<th>Date</th>
-					<th>Summary</th>
-					<th>Join</th>
-					<th>Details</th>
-				</tr>
-			</thead>
-			<tbody>
-				{{#each event in events}}
+		<div class="row">
+			<h4>Take a look at all upcoming events.</h4>
+			<table class="table table-hover">
+				<thead>
 					<tr>
-						<td>{{event.title}}</td>
-						<td>{{event.sport}}</td>
-						<td>{{formatDate event.date}}</td>
-						<td>{{event.summary}}</td>
-						<td><button class="join btn btn-success" id="{{event._id}}">Join</button></td>
-						<td><button class="details btn btn-info" id="{{event._id}}">Details</button></td>
+						<th>Title</th>
+						<th>Date</th>
+						<th>Details</th>
 					</tr>
-				{{/each}}
-			</tbody>
-		</table> 
+				</thead>
+				<tbody>
+					{{#each event in events}}
+						<tr>
+							<td>{{event.title}}</td>
+							<td>{{formatDate event.date}}</td>
+							<td><button class="details btn btn-info" id="{{event._id}}">Details</button></td>
+						</tr>
+					{{/each}}
+				</tbody>
+			</table>
+		</div>
+		<div class="col-md-10 col-xs-8">
+			{{#if viewingEvent}}
+				{{>dialog}}
+			{{/if}}
+		</div>
+	</div>
+</template>
+
+<template name="dialog">
+	<div class="modal fade in show" tabindex="-1" role="dialog" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close closeDialog" data-dismiss="modal" aria-hidden="true">&times;</button>
+					<h4>{{currentEvent.title}}</h4>
+				</div>
+				<div class="modal-body">
+					<div class="eventInfo">
+						<p>{{currentEvent.date}}</p>
+						<p>{{currentEvent.summary}}</p>
+					</div>
+					<div class="eventInfo">
+						<h4>Attending:</h4>
+						<ul class="attendees list-unstyled">
+							{{#each attendee in attendees}}
+								<li>{{attendee}}</li>
+							{{/each}}
+						</ul>
+					</div>
+					<div class="comments">
+						<button class="btn btn-primary" role="button" data-toggle="collapse" href="#commentsCollapse" aria-expanded="false" aria-controls="commentsCollapse">Comments</button>
+						<div class="collapse" id="commentsCollapse">
+							{{#each comment in comments}}
+								<p>{{comment.username}} : {{comment.text}}</p>
+							{{/each}}
+							<form id="addCommentForm" role="form" class="col-md-6">
+								<label>Add Comment:</label>
+								<input id="commentText" class="form-control" type="text" required>
+								<input type="submit" id="addComment" value="Add Comment" class="btn btn-default centerBlock"/>
+							</form>
+						</div>
+					</div>
+				</div><!-- modal-body -->
+				<div class="modal-footer">
+					{{#if userInEvent}}
+						<button class="leave btn btn-danger" id="{{currentEvent._id}}">Leave</button>
+					{{else}}
+						<button class="join btn btn-success" id="{{currentEvent._id}}">Join</button>
+					{{/if}}
+				</div>
+				<!-- modal-footer -->
+			</div>
+		</div>
 	</div>
 </template>
