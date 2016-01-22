@@ -4,12 +4,28 @@ Template.viewEvents.onCreated(function(){
 });
 
 Template.viewEvents.helpers({
-	events: function() {
-		let games = Games.find({}, {sort: {'date' : 1}});
-		return games;
-	},
 	viewingEvent: function() {
 		return Session.get('viewingEvent');
+	},
+	todaysEvents: function() {
+		let endOfToday = moment().endOf('day').toDate();
+		let games = Games.find({'date': {$lt: endOfToday}}, {sort: {'date': 1}});
+		return games;
+	},
+	tomorrowsEvents: function() {
+		let endOfTomorrow = moment().add(1, 'days').endOf('day').toDate();
+		let endOfToday = moment().endOf('day').toDate();
+		let games = Games.find({ $and: [
+			{'date': {$lt: endOfTomorrow}}, 
+			{'date': {$gte: endOfToday}}]}, 
+			{sort: {'date': 1}});
+		return games;
+
+	},
+	upcomingEvents: function() {
+		let endOfTomorrow = moment().add(1, 'days').endOf('day').toDate();
+		let games = Games.find({'date': {$gte: endOfTomorrow}});
+		return games;
 	}
 });
 
@@ -72,6 +88,7 @@ Template.dialog.events({
 			text: t.find('#commentText').value,
 			created: today
 		};
+		$('#commentText').val('');
 		Meteor.call("newComment", comment);
 	},
 	'click .closeDialog': function(event, template){

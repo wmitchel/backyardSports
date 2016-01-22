@@ -1,25 +1,61 @@
 <template name="viewEvents">
 	<div class="container">
-		<div class="row">
+		<div class="row gameList">
 			<h4 class="text-center">Take a look at all upcoming events.</h4>
-			<table class="table table-hover">
-				<thead>
-					<tr>
-						<th>Title</th>
-						<th>Date</th>
-						<th>Details</th>
-					</tr>
-				</thead>
-				<tbody>
-					{{#each event in events}}
-						<tr>
-							<td>{{event.title}}</td>
-							<td>{{formatDate event.date}}</td>
-							<td><button class="details btn btn-info" id="{{event._id}}">Details</button></td>
-						</tr>
-					{{/each}}
-				</tbody>
-			</table>
+
+			<div class="row">
+				<h5>Today's Events</h5>
+				<hr size="2">
+				{{#each event in todaysEvents}}
+					<div class="row">
+						<div class="col-xs-3 col-xs-offset-1 text-center">
+							{{event.title}}
+						</div>
+						<div class="col-xs-3 col-xs-offset-1 text-center">
+							{{formatDate event.date}}
+						</div>
+						<div class="col-xs-3 text-center">
+							<button class="details btn btn-info" id="{{event._id}}">Details</button>
+						</div>
+					</div>
+				{{/each}}
+			</div>
+			
+			<div class="row">
+				<h5>Tomorrow's Events</h5>
+				<hr size="2">
+				{{#each event in tomorrowsEvents}}
+					<div class="row">
+						<div class="col-xs-3 col-xs-offset-1 text-center">
+							{{event.title}}
+						</div>
+						<div class="col-xs-3 col-xs-offset-1 text-center">
+							{{formatDate event.date}}
+						</div>
+						<div class="col-xs-3 text-center">
+							<button class="details btn btn-info" id="{{event._id}}">Details</button>
+						</div>
+					</div>
+				{{/each}}
+			</div>
+
+			<div class="row">
+				<h5>Upcoming Events</h5>
+				<hr size="2">
+				{{#each event in upcomingEvents}}
+					<div class="row">
+						<div class="col-xs-3 col-xs-offset-1 text-center">
+							{{event.title}}
+						</div>
+						<div class="col-xs-3 col-xs-offset-1 text-center">
+							{{formatDate event.date}}
+						</div>
+						<div class="col-xs-3 text-center">
+							<button class="details btn btn-info" id="{{event._id}}">Details</button>
+						</div>
+					</div>
+				{{/each}}
+			</div>
 		</div>
 		<div class="col-md-10 col-xs-8">
 			{{#if viewingEvent}}
@@ -59,14 +95,6 @@
 								</div>
 								<input type="submit" id="addComment" value="Submit" class="btn btn-default centerBlock"/>
 							</form>
-							<!-- <table>
-								{{#each comment in comments}}
-									<tr>
-										<td>{{comment.username}}</td>
-										<td>{{comment.text}}</td>
-									</tr>
-								{{/each}}
-							</table> -->
 							{{#each comment in comments}}
 								<p>{{comment.username}}:   {{comment.text}}</p>
 							{{/each}}
