@@ -5,7 +5,7 @@ Template.viewEvents.onCreated(function(){
 
 Template.viewEvents.helpers({
 	events: function() {
-		let games = Games.find({}, {sort: {'date' : -1}});
+		let games = Games.find({}, {sort: {'date' : 1}});
 		return games;
 	},
 	viewingEvent: function() {
@@ -62,7 +62,6 @@ Template.dialog.helpers({
 Template.dialog.events({
 	'submit #addCommentForm' : function(e, t) {
 		e.preventDefault();
-		//let foundUser = Meteor.users.findOne({_id: Meteor.userId()});
 		let name = Meteor.user().username;
 		let detailSession = Session.get("detailId");
 		let today = new Date();
@@ -90,6 +89,5 @@ Template.dialog.events({
 
 Template.dialog.onCreated(function(){
 	let id = Session.get("detailId");
-	// this.subscribe('gameDetail', id);
 	this.subscribe('comments', id);
 });

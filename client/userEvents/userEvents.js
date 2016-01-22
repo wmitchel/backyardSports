@@ -19,7 +19,6 @@ Template.userEvents.events({
 		var buttonId = e.currentTarget.id;
 		Session.set("detailId", buttonId);
 		Session.set('viewingEvent', true);
-		// Router.go('/eventDetails');
 	}
 });
 
