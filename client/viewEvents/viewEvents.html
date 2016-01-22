@@ -59,17 +59,17 @@
 								</div>
 								<input type="submit" id="addComment" value="Submit" class="btn btn-default centerBlock"/>
 							</form>
-							<table>
+							<!-- <table>
 								{{#each comment in comments}}
 									<tr>
 										<td>{{comment.username}}</td>
 										<td>{{comment.text}}</td>
 									</tr>
 								{{/each}}
-							</table>
-							<!-- {{#each comment in comments}}
-								<p>{{comment.username}} : {{comment.text}}</p>
-							{{/each}} -->
+							</table> -->
+							{{#each comment in comments}}
+								<p>{{comment.username}}:   {{comment.text}}</p>
+							{{/each}}
 						</div>
 					</div>
 				</div><!-- modal-body -->
