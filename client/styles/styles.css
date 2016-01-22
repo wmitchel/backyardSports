@@ -47,9 +47,26 @@
 .modal {
 	overflow-y: scroll;
 }
+.modal-header, .modal-footer {
+  color: #FFFFFF;
+  background-color: #009393;
+}
+
+.modal-header h4 {
+  font-weight: bold;
+  font-size: 2rem;
+}
+
+.modal-content {
+  background-color: #FFFCC4;
+}
+
+#detailCommentButton {
+  margin-bottom: 5px;
+}
 
 /* join and details classes */
-.join, .details{
+.join, .details {
 	vertical-align: center;
 }
 
@@ -148,9 +165,14 @@ td, th {
 .btn:focus, .btn:active:focus, .btn.active:focus {
     outline: 0 none;
 }
+
+.btn-info {
+  background: #009393;
+  color: #ffffff;
+}
  
 .btn-primary {
-    background: #0099cc;
+    background: #009393;
     color: #ffffff;
 }
  

@@ -27,11 +27,15 @@ Template.newEvent.helpers({
 		var options = [
 				{label: "Soccer", value: "Soccer"},
 				{label: "Baseball", value: "Baseball"},
+				{label: "Basketball", value: "Basketball"},
 				{label: "Football", value: "Football"},
 				{label: "Tennis", value: "Tennis"},
 				{label: "Hockey", value: "Hockey"},
+				{label: "Volleyball", value: "Volleyball"},
+				{label: "Lacrosse", value: "Lacrosse"},
+				{label: "Cricket", value: "Cricket"},
 				{label: "Curling", value: "Curling"},
-				{label: "Other", value: "Other"}
+				{label: "OtherBall", value: "OtherBall"}
 			];
 		return options;
 	}

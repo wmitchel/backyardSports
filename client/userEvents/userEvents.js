@@ -6,7 +6,7 @@ Template.userEvents.onCreated(function(){
 Template.userEvents.helpers({
 	events: function() {
 		let name = Meteor.user().username;
-		var inGames = Games.find( { $or: [{ "attendees" : Meteor.userId() }, { "attendees" : name} ] });
+		var inGames = Games.find( { $or: [{ "attendees" : Meteor.userId() }, { "attendees" : name} ] }, {sort: {'date' : -1}});
 		return inGames;
 	},
 	viewingEvent: function() {

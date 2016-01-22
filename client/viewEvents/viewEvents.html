@@ -1,7 +1,7 @@
 <template name="viewEvents">
 	<div class="container">
 		<div class="row">
-			<h4>Take a look at all upcoming events.</h4>
+			<h4 class="text-center">Take a look at all upcoming events.</h4>
 			<table class="table table-hover">
 				<thead>
 					<tr>
@@ -39,7 +39,7 @@
 				</div>
 				<div class="modal-body">
 					<div class="eventInfo">
-						<p>{{currentEvent.date}}</p>
+						<p>{{formatDetail currentEvent.date}}</p>
 						<p>{{currentEvent.summary}}</p>
 					</div>
 					<div class="eventInfo">
@@ -51,16 +51,25 @@
 						</ul>
 					</div>
 					<div class="comments">
-						<button class="btn btn-primary" role="button" data-toggle="collapse" href="#commentsCollapse" aria-expanded="false" aria-controls="commentsCollapse">Comments</button>
+						<button class="btn btn-primary" role="button" data-toggle="collapse" href="#commentsCollapse" aria-expanded="false" id="detailCommentButton" aria-controls="commentsCollapse">Comments <span class="caret"></span></button>
 						<div class="collapse" id="commentsCollapse">
-							{{#each comment in comments}}
-								<p>{{comment.username}} : {{comment.text}}</p>
-							{{/each}}
-							<form id="addCommentForm" role="form" class="col-md-6">
-								<label>Add Comment:</label>
-								<input id="commentText" class="form-control" type="text" required>
-								<input type="submit" id="addComment" value="Add Comment" class="btn btn-default centerBlock"/>
+							<form id="addCommentForm" role="form">
+								<div class="form-group">
+									<input id="commentText" class="form-control" type="text" placeholder="Add Comment" required>
+								</div>
+								<input type="submit" id="addComment" value="Submit" class="btn btn-default centerBlock"/>
 							</form>
+							<table>
+								{{#each comment in comments}}
+									<tr>
+										<td>{{comment.username}}</td>
+										<td>{{comment.text}}</td>
+									</tr>
+								{{/each}}
+							</table>
+							<!-- {{#each comment in comments}}
+								<p>{{comment.username}} : {{comment.text}}</p>
+							{{/each}} -->
 						</div>
 					</div>
 				</div><!-- modal-body -->

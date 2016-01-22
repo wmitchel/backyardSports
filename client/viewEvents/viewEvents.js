@@ -5,7 +5,7 @@ Template.viewEvents.onCreated(function(){
 
 Template.viewEvents.helpers({
 	events: function() {
-		let games = Games.find();
+		let games = Games.find({}, {sort: {'date' : -1}});
 		return games;
 	},
 	viewingEvent: function() {
@@ -22,7 +22,11 @@ Template.viewEvents.events({
 });
 
 Template.registerHelper('formatDate', function(date) {
-	return moment(date).format('MM-DD-YYYY');
+	return moment(date).format('ddd-MM-DD');
+});
+
+Template.registerHelper('formatDetail', function(date) {
+	return moment(date).format('llll');
 });
 
 Template.dialog.helpers({
@@ -30,7 +34,6 @@ Template.dialog.helpers({
 		let detailSession = Session.get("detailId");
 		let game = Games.findOne({_id: detailSession});
 		let name = Meteor.user().username;
-		console.log(name);
 		if ($.inArray(name, game.attendees) > -1){
 			return true;
 		} else {
@@ -51,7 +54,7 @@ Template.dialog.helpers({
 	},
 	comments: function() {
 		let detailSession = Session.get("detailId");
-		let comments = Comments.find({gameId: detailSession});
+		let comments = Comments.find({gameId: detailSession}, {sort: {'created' : -1}});
 		return comments;
 	}
 });
@@ -62,13 +65,14 @@ Template.dialog.events({
 		//let foundUser = Meteor.users.findOne({_id: Meteor.userId()});
 		let name = Meteor.user().username;
 		let detailSession = Session.get("detailId");
+		let today = new Date();
 
 		let comment = {
 			gameId: detailSession,
 			username: name,
-			text: t.find('#commentText').value
+			text: t.find('#commentText').value,
+			created: today
 		};
-
 		Meteor.call("newComment", comment);
 	},
 	'click .closeDialog': function(event, template){
@@ -86,6 +90,6 @@ Template.dialog.events({
 
 Template.dialog.onCreated(function(){
 	let id = Session.get("detailId");
-	this.subscribe('gameDetail', id);
+	// this.subscribe('gameDetail', id);
 	this.subscribe('comments', id);
 });
