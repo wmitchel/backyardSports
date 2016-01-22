@@ -1,10 +1,10 @@
 <template name="viewEvents">
 	<div class="container">
 		<div class="row gameList">
-			<h4 class="text-center">Take a look at all upcoming events.</h4>
+			<h4 class="text-center">Take a look at all upcoming games.</h4>
 
 			<div class="row">
-				<h5>Today's Events</h5>
+				<h5>Today's Games</h5>
 				<hr size="2">
 				{{#each event in todaysEvents}}
 					<div class="row">
@@ -22,7 +22,7 @@
 			</div>
 			
 			<div class="row">
-				<h5>Tomorrow's Events</h5>
+				<h5>Tomorrow's Games</h5>
 				<hr size="2">
 				{{#each event in tomorrowsEvents}}
 					<div class="row">
@@ -40,7 +40,7 @@
 			</div>
 
 			<div class="row">
-				<h5>Upcoming Events</h5>
+				<h5>Upcoming Games</h5>
 				<hr size="2">
 				{{#each event in upcomingEvents}}
 					<div class="row">
