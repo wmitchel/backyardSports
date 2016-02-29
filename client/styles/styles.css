@@ -212,6 +212,7 @@ td, th {
     border-color: #00585F;
     background-color: #F0EDBB;
 }
+
 .btn-primary.outline:active, .btn-primary.outline.active {
     border-color: #007299;
     color: #007299;
@@ -226,4 +227,16 @@ td, th {
   .login-button {
     margin-bottom:10px;
   }
+}
+
+
+
+#map {
+height: 70%; width: 100%; position: absolute; top: 0; left: 0;
+}
+.flotante{
+  position: absolute; 
+  top: 10px; 
+  left: 100px; 
+  z-index: 99;
 }
