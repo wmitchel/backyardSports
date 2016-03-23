@@ -1,264 +1,230 @@
 //colors
-$color_lemon_chiffon_approx: #43fc9a;
-$color_blue_chill_approx: #009393;
-$color_scarlet_approx: #ff3800;
-$white: #fff;
-$black: #000;
-$color_mountain_mist_approx: #999;
-$color_pickled_bluewood_approx: #2c3e50;
-$concrete: #f2f2f2;
-$color_blue_stone_approx: #00585f;
-$color_allports_approx: #007299;
-$color_fall_green_approx: #f0edbb;
-$color_brand: #fc4349;
+$color_logo: #FF3800;
+$color_nav: #FFFCC4;
+$color_nav_writing: #009393;
+$color_active_button: #007299;
+$color_hover_button: #00585F;
+$color_modal_writing: #FFFFFF;
+$color_login_background: #2C3E50;
+$color_login_border: #999999;
 
 
 //fonts
+$font_stack: Ubuntu, sans-serif;
 $font_0: 'Ubuntu';
 $font_1: 'sans-serif';
 
 //urls
-$url_0: url('/background.jpg');
+$gradient_background: url('/background.jpg');
 $url_1: url('jumbotron-bg.png');
 
-//@extend-elements
-//original selectors
-//.login-form input[type="username"], .login-form input[type="password"], .login-form input[type="text"]
-%extend_1 {
+//Background
+body {
+	background: $gradient_background;
+}
+
+//Center Table Data and Headers
+//Consider making it a mixin
+td, th {
 	text-align: center;
-	width: 100%;
-	max-width: 400px;
-	height: 30px;
-	font-family: $font_0, $font_1;
-	border-radius: 5px;
-	border: 2px solid $concrete;
-	outline: none;
-	padding-left: 10px;
-	margin: 0 auto;
-	float: none;
-}
-
-//original selectors
-//.btn-primary.outline:hover, .btn-primary.outline:focus, .btn-primary.outline:active, .btn-primary.outline.active, .open >.dropdown-toggle.btn-primary
-%extend_2 {
-	color: $color_blue_stone_approx;
-	border-color: $color_blue_stone_approx;
-	background-color: $color_fall_green_approx;
-}
-
-//original selectors
-//.btn-primary.outline:active, .btn-primary.outline.active
-%extend_3 {
-	border-color: $color_allports_approx;
-	color: $color_allports_approx;
-	box-shadow: none;
 }
 
 
+//Navigation
+.navbar-default {
+	background-color: $color_nav;
+	.navbar-brand {
+		color: $color_nav_writing;
+		font-size: 2.7rem;
+		font-weight: bolder;
+		vertical-align: center;
+	}
+}
+
+//Navigation Dropdowns
+.navbar-nav {
+	li {
+		button{ line-height:35px; }
+		ul li { text-align: center; }
+	}
+}
+
+
+//Content
+#content {
+	margin-top: 65px;
+	margin-left: 20px;
+}
+
+//Logo
+.fa-futbol-o {
+	color: $color_logo;
+	padding-right: 5px;
+}
+
+//New Events
 .centerBlock {
 	display: block;
 	margin-left: auto;
 	margin-right: auto;
 	margin-top: 1.2rem;
 }
-#content {
-	margin-top: 65px;
-	margin-left: 20px;
-	margin-right: 20px;
-}
-.navbar {
-	background-color: $color_lemon_chiffon_approx;
-}
-.fa-futbol-o {
-	color: $color_scarlet_approx;
-	padding-right: 5px;
-}
+
+//Event Detail Stylings
 .eventInfo {
 	text-align: center;
 }
+
 .modal {
 	overflow-y: scroll;
 }
+
 .modal-header {
-	color: $white;
-	background-color: $color_blue_chill_approx;
+	color: $color_modal_writing;
+	background-color: $color_nav_writing;
 	h4 {
 		font-weight: bold;
 		font-size: 2rem;
 	}
 }
+
 .modal-footer {
-	color: $white;
-	background-color: $color_blue_chill_approx;
+	color: $color_nav;
 }
+
 .modal-content {
-	background-color: $color_lemon_chiffon_approx;
+	background-color: $color_nav;
 }
+
 #detailCommentButton {
 	margin-bottom: 5px;
 }
-.join {
+
+#commentsCollapse p {
+	text-align: center;
+}
+
+.join, .details {
 	vertical-align: center;
 }
-.details {
-	vertical-align: center;
-}
+
+//For button on insert game form
 #insertAssignment {
 	margin-bottom: 2rem;
 }
-body {
-	background: $url_0;
-}
-td {
-	text-align: center;
-}
-th {
-	text-align: center;
-}
+
+//Landing Page Login & Register
 .login {
 	margin: 0 auto;
 	max-width: 500px;
 }
+
 .login-header {
-	color: $black;
+	color: #000000;
 	text-align: center;
 	font-size: 300%;
-	h1 {
-		text-shadow: 0 5px 15px $black;
+	h1{
+		text-shadow: 0px 5px 15px #000000;
 	}
 }
+
 .login-form {
-	border: 2px solid $color_mountain_mist_approx;
-	background: $color_pickled_bluewood_approx;
-	border-radius: 10px;
-	box-shadow: 0 0 10px $black;
-	padding-top: 15px;
-	margin: 50px auto;
-	text-align: center;
+	border:2px solid #999;
+	background:#2c3e50;
+	border-radius:10px;
+	box-shadow:0px 0px 10px #000;
+	padding-top:15px;
+	margin:50px auto;
+	text-align:center;
 	overflow: hidden;
 	h3 {
 		text-align: left;
 		margin-left: 40px;
-		color: $white;
+		color: #ffffff;
 	}
-	input[type="username"] {
-		@extend %extend_1;
-	}
-	input[type="password"] {
-		@extend %extend_1;
-	}
-	input[type="text"] {
-		@extend %extend_1;
-	}
-	input[type="submit"] {
+	input[type="username"], input[type="password"], input[type="text"] {
+        text-align: center;
+        width: 100%;
+        max-width:400px;
+        height:30px;
+        font-family: 'Ubuntu', sans-serif;
+        border-radius:5px;
+        border:2px solid #f2f2f2;
+        outline:none;
+        padding-left:10px;
+        margin: 0 auto;
+        float: none;
+    }
+	input[type="submit"]{
 		margin-bottom: 15px;
 	}
 }
+
+//Landing Page Jumbotron
 .jumbotron {
 	position: relative;
-	color: $color_scarlet_approx;
+	color: $color_logo;
+	/*background: #000 url("jumbotron-bg.png") center center;*/
 	width: 100%;
 	height: 100%;
 	background-size: cover;
 	overflow: hidden;
 	text-align: center;
 	p {
-		color: $color_blue_chill_approx;
+		color: $color_nav_writing;
 	}
 }
+
+//Modified Bootstrap Buttons
 .btn {
 	padding: 14px 24px;
 	border: 0 none;
 	font-weight: 700;
 	letter-spacing: 1px;
 	text-transform: uppercase;
-	&:focus {
+	&:focus, &:active:focus, &.active:focus {
 		outline: 0 none;
 	}
-	&.outline {
+}
+
+.btn-info {
+  background: $color_nav_writing;
+  color: #ffffff;
+}
+
+.btn-primary {
+	background: $color_nav_writing;
+	color: #ffffff;
+	&:hover, &:focus, &:active, &.active {
+		background: $color_hover_button;
+	}
+	.outline {
 		background: none;
 		padding: 12px 22px;
-	}
-	&:active:focus {
-		outline: 0 none;
-	}
-	&.active:focus {
-		outline: 0 none;
-	}
-}
-.btn-info {
-	background: $color_blue_chill_approx;
-	color: $white;
-}
-.btn-primary {
-	background: $color_blue_chill_approx;
-	color: $white;
-	&:hover {
-		background: $color_blue_stone_approx;
-	}
-	&:focus {
-		background: $color_blue_stone_approx;
-	}
-	&:active {
-		background: $color_blue_stone_approx;
-		background: $color_allports_approx;
-		box-shadow: none;
-	}
-	&.active {
-		background: $color_blue_stone_approx;
-		background: $color_allports_approx;
-		box-shadow: none;
-	}
-	&.outline {
-		border: 2px solid $color_blue_chill_approx;
-		color: $color_blue_chill_approx;
-		&:hover {
-			@extend %extend_2;
-		}
-		&:focus {
-			@extend %extend_2;
-		}
-		&:active {
-			@extend %extend_2;
-			@extend %extend_3;
-		}
-		&.active {
-			@extend %extend_2;
-			@extend %extend_3;
+		&:hover, &:focus, &:active {
+			color: $color_hover_button;
+			border-color: $color_hover_button;
+			background-color: $color_nav;
 		}
 	}
 }
-@media only screen and(min-width : 150px) and(max-width : 530px) {
-	.login-button {
-		margin-bottom: 10px;
-	}
+
+@media only screen and (min-width : 150px) and (max-width : 530px){
 	.login-form h3 {
-		text-align: center;
-		margin: 0;
+		text-align:center;
+		margin:0;
+	}
+	.login-button {
+		margin-bottom:10px;
 	}
 }
-.navbar-nav li {
-	button {
-		line-height: 35px;
-	}
-	ul li {
-		text-align: center;
-	}
+
+#map {
+height: 70%; width: 100%; position: absolute; top: 0; left: 0;
 }
-.navbar-default .navbar-brand {
-	color: $color_brand;
-	font-size: 2.7rem;
-	font-weight: bolder;
-	vertical-align: center;
-}
-.gameList .row .row {
-	margin-top: 3px;
-	margin-bottom: 3px;
-}
-#commentsCollapse p {
-	text-align: center;
-}
-.open > .dropdown-toggle.btn-primary {
-	background: $color_blue_stone_approx;
-	@extend %extend_2;
+.flotante{
+  position: absolute;
+  top: 10px;
+  left: 100px;
+  z-index: 99;
 }

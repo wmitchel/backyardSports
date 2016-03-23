@@ -1,15 +1,17 @@
 <template name="register">
-	<form id="register-form" action="action" role="form">
-		<div class="form-group">
-			<label>Username</label>
-			<input type="username" id="account-username" placeholder="Username" class="form-control"/>
-			<label>Password</label>
-			<input type="password" id="account-password" placeholder="Password" class="form-control"/>
-			<label>First Name</label>
-			<input type="text" id="fName" placeholder="First Name" class="form-control"/>
-			<label>Last Name</label>
-			<input type="text" id="lName" placeholder="Last Name" class="form-control"/>
-			<input type="submit" id="create-account" value="Create an Account" class="btn btn-default"/>
-		</div>
-	</form>
+    <div id="register" class="login">
+        <form id="register-form" class="login-form">
+            <h3>Username:</h3>
+            <input type="username" id="account-username" class="form-control" placeholder="Username"/>
+            <h3>Password:</h3>
+            <input type="password" id="account-password" class="form-control" placeholder="Password"/>
+            <h3>First Name:</h3>
+            <input type="text" id="fName" placeholder="First Name" class="form-control"/>
+            <h3>Last Name:</h3>
+            <input type="text" id="lName" placeholder="Last Name" class="form-control"/>
+            <h3>City:</h3>
+            <input type="text" id="city" placeholder="City" class="form-control">
+            <input type="submit" id="register-button" value="Register" class="btn btn-default centerBlock register-button" />
+        </form>
+    </div>
 </template>

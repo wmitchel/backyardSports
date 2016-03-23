@@ -14,33 +14,11 @@
 	</div>
 	<div class="row">
 		{{#with userPressedLogin}}
-			<div id="login" class="login">
-				<form id="login-form" class="login-form">
-					<h3>Username:</h3>
-					<input type="username" id="login-username" class="form-control" placeholder="Username"/>
-					<h3>Password:</h3>
-					<input type="password" id="login-password" class="form-control" placeholder="Password"/>
-					<input type="submit" id="login-button" value="Sign in" class="btn btn-default centerBlock login-button" />
-				</form>
-			</div>
+			{{>login}}
 		{{/with}}
 
 		{{#with userPressedRegister}}
-			<div id="register" class="login">
-				<form id="register-form" class="login-form">
-					<h3>Username:</h3>
-					<input type="username" id="account-username" class="form-control" placeholder="Username"/>
-					<h3>Password:</h3>
-					<input type="password" id="account-password" class="form-control" placeholder="Password"/>
-					<h3>First Name:</h3>
-					<input type="text" id="fName" placeholder="First Name" class="form-control"/>
-					<h3>Last Name:</h3>
-					<input type="text" id="lName" placeholder="Last Name" class="form-control"/>
-					<h3>City:</h3>
-					<input type="text" id="city" placeholder="City" class="form-control">
-					<input type="submit" id="register-button" value="Register" class="btn btn-default centerBlock register-button" />
-				</form>
-			</div>
+			{{>register}}
 		{{/with}}
 	</div>
 </template>

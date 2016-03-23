@@ -11,46 +11,6 @@ Template.landing.events({
 	'click #registerSelector' : function(){
 		Session.set({userPressedLogin: false});
 		Session.set({userPressedRegister: true});
-	},
-	'submit #login-form' : function(e, t){
-		e.preventDefault();
-		// retrieve the input field values
-		var username = t.find('#login-username').value , password = t.find('#login-password').value;
-
-		Meteor.loginWithPassword(username, password, function(err){
-			if (err){
-				alert("Password may be incorrect");
-				console.log(err);
-			} else {
-				Router.go("/view");
-			}
-			// The user has been logged in.
-		});
-	},
-	'submit #register-form' : function(e, t) {
-			e.preventDefault();
-
-			var options = {
-				username: t.find('#account-username').value,
-				password: t.find('#account-password').value,
-				profile: {
-					fName: t.find('#fName').value,
-					lName: t.find('#lName').value,
-					city: t.find('#city').value
-				}
-			};
-
-			Accounts.createUser(options, function(err){
-					if (err) {
-						// Inform the user that account creation failed
-						alert("Account Creation Failed, Try Again.");
-					} else {
-						// Success. Account has been created and the user
-						// has logged in successfully. 
-						Router.go("/view");
-					}
-
-			});
 	}
 });
 
