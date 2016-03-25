@@ -8,4 +8,8 @@ Meteor.publish('userGames', function(id){
 
 Meteor.publish("comments", function(id) {
 	return Comments.find({gameId: id});
-})
+});
+
+Meteor.publish("notifications", function(id) {
+   return Notifications.find({recieverUsername: id});
+});

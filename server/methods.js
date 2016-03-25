@@ -22,7 +22,50 @@ Meteor.methods({
 		let name = foundUser.username;
 		Games.update({_id: buttonId}, {$pull : {attendees : name}});
 	},
-	newComment: function(comment) {
+	newComment: function(comment, commenter) {
 		Comments.insert(comment);
-	}
+        let notif = {};
+        notif.typeOf = 1;
+        notif.commenterId = comment.username;
+        notif.gameId = comment.gameId;
+        notif.commenterId = commenter;
+        Meteor.call('newNotification', notif);
+	},
+    newNotification: function(notif) {
+        switch (notif.typeOf) {
+            case 1:
+                console.log("Comment");
+                Meteor.call('newCommentNotification', notif);
+                break;
+            case 2:
+                console.log("Player Joined");
+                break;
+            case 3:
+                console.log("Game Created Near You With Your Interests Starting withing next day.");
+                //Maybe check user's google calendar to see if schedule is free to play game.
+                break;
+            default:
+                console.log("No Options");
+                break;
+        }
+    },
+    newCommentNotification: function (notif) {
+        let sendingOut = Games.findOne({_id: notif.gameId});
+        let currentUsername = Meteor.users.findOne({_id: Meteor.userId()});
+        if (sendingOut.attendees.length > 1) {
+            let attendees = sendingOut.attendees;
+            for (let person in attendees) {
+                if (person != currentUsername) {
+                    console.log(person);
+                    let notification = {};
+                    notification.commenterId = notif.commenterId;
+                    notification.gameId = notif.gameId;
+                    //notification.time = moment();
+                    notification.recieverUsername = attendees[person];
+                    notification.read = false;
+                    Notifications.insert(notification);
+                }
+            }
+        }
+    }
 });
