@@ -1,5 +1,5 @@
 Template.viewEvents.onCreated(function(){
-	let date = new Date();
+	let date = moment().toDate();
 	this.subscribe('upcomingGames', date);
 });
 

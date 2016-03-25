@@ -30,7 +30,7 @@ Template.eventDetail.events({
 			username: name,
 			text: t.find('#commentText').value
 		};
-
-		Meteor.call("newComment", comment);
+		let currentUserId = Meteor.userId();
+		Meteor.call("newComment", comment, currentUserId);
 	}
 });
