@@ -192,20 +192,25 @@ td, th {
   color: #ffffff;
 }
 
+.btn.outline {
+	background: none;
+	padding: 12px 22px;
+}
+
+.btn-primary.outline {
+  border: 2px solid $color_nav_writing;
+  color: $color_nav_writing;
+  .badge {
+    background-color: $color_nav_writing;
+    color: #ffffff;
+  }
+}
+
 .btn-primary {
 	background: $color_nav_writing;
 	color: #ffffff;
 	&:hover, &:focus, &:active, &.active {
 		background: $color_hover_button;
-	}
-	.outline {
-		background: none;
-		padding: 12px 22px;
-		&:hover, &:focus, &:active {
-			color: $color_hover_button;
-			border-color: $color_hover_button;
-			background-color: $color_nav;
-		}
 	}
 }
 
