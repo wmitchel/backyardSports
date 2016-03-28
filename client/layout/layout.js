@@ -31,6 +31,9 @@ Template.nav.helpers({
         } else {
             return numNotif;
         }
+    },
+    'viewingEventNotif': function() {
+        return Session.get('viewingEventNotif');
     }
 });
 
@@ -45,5 +48,10 @@ Template.nav.events({
         let foundUser = Meteor.users.findOne({_id: Meteor.userId()});
         let name = foundUser.username;
         Meteor.call("removeNotifications", name);
+    },
+    "click .notifPath": function(e){
+        var buttonId = e.currentTarget.id;
+        Session.set("detailId", buttonId);
+        Session.set('viewingEventNotif', true);
     }
 });

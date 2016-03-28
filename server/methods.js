@@ -70,5 +70,8 @@ Meteor.methods({
     },
     removeNotifications: function (user) {
         Notifications.remove( {recieverUsername : user });
+    },
+    setNotifViewed: function ( user, game ) {
+        Notifications.update( { $and: [{ recieverUsername : user }, { gameId : game }]}, { $set: {read: true}}, {multi: true} );
     }
 });

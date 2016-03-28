@@ -95,7 +95,13 @@ Template.dialog.events({
 		Meteor.call("newComment", comment, currentUsername);
 	},
 	'click .closeDialog': function(event, template){
+        if (Session.get('viewingEventNotif')) {
+            let name = Meteor.user().username;
+            let detailSession = Session.get("detailId");
+            Meteor.call('setNotifViewed', name, detailSession);
+        }
 		Session.set('viewingEvent', null);
+        Session.set('viewingEventNotif', null);
 	},
 	"click .join": function(e) {
 		var buttonId = e.currentTarget.id;
