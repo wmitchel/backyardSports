@@ -46,13 +46,16 @@ td, th {
 	li {
 		button{ line-height:35px; }
 		ul li { text-align: center; }
+        ul {background-color: $color_nav}
 	}
 }
 
 .notificationList {
-  vertical-align: center;
+  //vertical-align: center;
   i {
     color: $color_nav_writing;
+    padding-right: 5px;
+    vertical-align: center;
   }
 }
 
@@ -207,6 +210,11 @@ td, th {
 .btn.outline {
 	background: none;
 	padding: 12px 22px;
+}
+
+.btn-danger.outline {
+  border: 2px solid $color_logo;
+  color: $color_logo;
 }
 
 .btn-primary.outline {
