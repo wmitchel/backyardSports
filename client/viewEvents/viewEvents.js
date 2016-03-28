@@ -89,7 +89,10 @@ Template.dialog.events({
 			created: today
 		};
 		$('#commentText').val('');
-		Meteor.call("newComment", comment);
+
+		let currentUserId = Meteor.users.findOne({_id: Meteor.userId()});
+		let currentUsername = currentUserId.username;
+		Meteor.call("newComment", comment, currentUsername);
 	},
 	'click .closeDialog': function(event, template){
 		Session.set('viewingEvent', null);

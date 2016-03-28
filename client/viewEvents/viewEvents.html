@@ -89,12 +89,14 @@
 					<div class="comments">
 						<button class="btn btn-primary" role="button" data-toggle="collapse" href="#commentsCollapse" aria-expanded="false" id="detailCommentButton" aria-controls="commentsCollapse">Comments <span class="caret"></span></button>
 						<div class="collapse" id="commentsCollapse">
-							<form id="addCommentForm" role="form">
-								<div class="form-group">
-									<input id="commentText" class="form-control" type="text" placeholder="Add Comment" required>
-								</div>
-								<input type="submit" id="addComment" value="Submit" class="btn btn-default centerBlock"/>
-							</form>
+                            {{#if userInEvent}}
+                                <form id="addCommentForm" role="form">
+                                    <div class="form-group">
+                                        <input id="commentText" class="form-control" type="text" placeholder="Add Comment" required>
+                                    </div>
+                                    <input type="submit" id="addComment" value="Submit" class="btn btn-default centerBlock"/>
+                                </form>
+                            {{/if}}
 							{{#each comment in comments}}
 								<p>{{comment.username}}:   {{comment.text}}</p>
 							{{/each}}

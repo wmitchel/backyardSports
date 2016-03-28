@@ -42,10 +42,10 @@
 								</ul>
 							</li>
                             <li class="dropdown">
-                                <button id="notifications" class="btn btn-primary dropdown-toggle outline" data-toggle="dropdown" type="button">Notifications <span class="badge">{{numNotifications}}</span></button>
+                                <button id="notifications" class="btn btn-primary dropdown-toggle btn-block outline" data-toggle="dropdown" type="button">Notifications <span class="badge">{{numNotifications}}</span></button>
                                 <ul class="dropdown-menu">
                                     {{#each notification in notifications}}
-                                        <li>{{notification.gameId}}</li>
+                                        <li class="notificationList"><i class="fa fa-futbol-o fa-2x notificationListIcon"></i>{{notification.message}}</li>
                                     {{/each}}
                                 </ul>
                             </li>

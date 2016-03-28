@@ -60,7 +60,7 @@ Meteor.methods({
                     let notification = {};
                     notification.commenterId = notif.commenterId;
                     notification.gameId = notif.gameId;
-                    //notification.time = moment();
+                    notification.message = notif.commenterId + " left a comment on a game you are in.";
                     notification.recieverUsername = attendees[person];
                     notification.read = false;
                     Notifications.insert(notification);
