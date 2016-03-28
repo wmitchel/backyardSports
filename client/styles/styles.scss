@@ -51,6 +51,9 @@ td, th {
 
 .notificationList {
   vertical-align: center;
+  i {
+    color: $color_nav_writing;
+  }
 }
 
 .notificationListIcon {

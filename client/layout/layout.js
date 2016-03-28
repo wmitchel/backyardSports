@@ -39,3 +39,11 @@ Template.nav.onCreated(function(){
     let name = foundUser.username;
     this.subscribe("notifications", name);
 });
+
+Template.nav.events({
+    'click #clearNotifications': function() {
+        let foundUser = Meteor.users.findOne({_id: Meteor.userId()});
+        let name = foundUser.username;
+        Meteor.call("removeNotifications", name);
+    }
+});

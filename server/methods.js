@@ -67,5 +67,8 @@ Meteor.methods({
                 }
             }
         }
+    },
+    removeNotifications: function (user) {
+        Notifications.remove( {recieverUsername : user });
     }
 });
