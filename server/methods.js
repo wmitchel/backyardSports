@@ -51,12 +51,12 @@ Meteor.methods({
     },
     newCommentNotification: function (notif) {
         let sendingOut = Games.findOne({_id: notif.gameId});
-        let currentUsername = Meteor.users.findOne({_id: Meteor.userId()});
+        let currentUserId = Meteor.users.findOne({_id: Meteor.userId()});
+        let currentUsername = currentUserId.username;
         if (sendingOut.attendees.length > 1) {
             let attendees = sendingOut.attendees;
             for (let person in attendees) {
-                if (person != currentUsername) {
-                    console.log(person);
+                if (attendees[person] != currentUsername) {
                     let notification = {};
                     notification.commenterId = notif.commenterId;
                     notification.gameId = notif.gameId;
