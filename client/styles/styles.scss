@@ -244,6 +244,13 @@ td, th {
 	}
 }
 
+@media only screen and (max-width: 768px) {
+	#clearNotifications {
+		width: 100%;
+	}
+
+}
+
 #map {
 height: 70%; width: 100%; position: absolute; top: 0; left: 0;
 }
