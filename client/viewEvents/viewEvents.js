@@ -94,7 +94,7 @@ Template.dialog.events({
 		let currentUsername = currentUserId.username;
 		Meteor.call("newComment", comment, currentUsername);
 	},
-	'click .closeDialog': function(event, template){
+	"click .closeDialog": function(event, template){
         if (Session.get('viewingEventNotif')) {
             let name = Meteor.user().username;
             let detailSession = Session.get("detailId");
@@ -104,8 +104,18 @@ Template.dialog.events({
         Session.set('viewingEventNotif', null);
 	},
 	"click .join": function(e) {
+		let name = Meteor.user().username;
+		let detailSession = Session.get("detailId");
+		let today = new Date();
+		let notif = {
+			gameId: detailSession,
+			username: name,
+			created: today
+		}
+		let currentUserId = Meteor.users.findOne({_id: Meteor.userId()});
+		let currentUsername = currentUserId.username;
 		var buttonId = e.currentTarget.id;
-		Meteor.call("joinEvent", buttonId);
+		Meteor.call("joinEvent", buttonId, notif, currentUsername);
 	},
 	"click .leave": function(e) {
 		let buttonId = e.currentTarget.id;

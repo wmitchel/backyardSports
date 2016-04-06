@@ -1,11 +1,17 @@
 Meteor.methods({
-	joinEvent: function(buttonId) {
+	joinEvent: function(buttonId, joinotif, joiner) {
 		if (! Meteor.userId()) {
 			throw new Meteor.Error("not-authorized");
 		};
 		let foundUser = Meteor.users.findOne({_id: Meteor.userId()});
 		let name = foundUser.username;
 		Games.update( buttonId, { $addToSet : { attendees : name}} );
+        let notif = {};
+        notif.typeOf = 2;
+        notif.joinerId = joinotif.username;
+        notif.gameId = joinotif.gameId;
+        notif.joinerId = joiner;
+        Meteor.call('newNotification', notif);
 	},
 	newEvent: function(options) {
 		if (! Meteor.userId()) {
@@ -39,6 +45,7 @@ Meteor.methods({
                 break;
             case 2:
                 console.log("Player Joined");
+                Meteor.call('newJoinedNotification', notif);
                 break;
             case 3:
                 console.log("Game Created Near You With Your Interests Starting withing next day.");
@@ -62,6 +69,27 @@ Meteor.methods({
                     notification.gameId = notif.gameId;
                     notification.message = notif.commenterId + " left a comment on a game you are in.";
                     notification.recieverUsername = attendees[person];
+                    notification.logo = "fa fa-comment fa-2x notificationListIcon";
+                    notification.read = false;
+                    Notifications.insert(notification);
+                }
+            }
+        }
+    },
+    newJoinedNotification: function (notif) {
+        let sendingOut = Games.findOne({_id: notif.gameId});
+        let currentUserId = Meteor.users.findOne({_id: Meteor.userId()});
+        let currentUsername = currentUserId.username;
+        if (sendingOut.attendees.length > 1) {
+            let attendees = sendingOut.attendees;
+            for (let person in attendees) {
+                if (attendees[person] != currentUsername) {
+                    let notification = {};
+                    notification.joinerId = notif.joinerId;
+                    notification.gameId = notif.gameId;
+                    notification.message = notif.joinerId + " joined a game you are in.";
+                    notification.recieverUsername = attendees[person];
+                    notification.logo = "fa fa-user-plus fa-2x";
                     notification.read = false;
                     Notifications.insert(notification);
                 }
