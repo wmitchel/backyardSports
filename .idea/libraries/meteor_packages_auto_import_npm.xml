@@ -2,6 +2,13 @@
   <library name="meteor-packages-auto-import-npm" type="javaScript">
     <properties>
       <sourceFilesUrls>
+        <item url="file://$USER_HOME$/.meteor/packages/promise/0.5.1/npm/node_modules/meteor-promise/webpack.config.js" />
+        <item url="file://$USER_HOME$/.meteor/packages/promise/0.5.1/npm/node_modules/meteor-promise/promise.js" />
+        <item url="file://$USER_HOME$/.meteor/packages/promise/0.5.1/npm/node_modules/meteor-promise/promise_server.js" />
+        <item url="file://$USER_HOME$/.meteor/packages/promise/0.5.1/npm/node_modules/meteor-promise/promise_client.js" />
+        <item url="file://$USER_HOME$/.meteor/packages/promise/0.5.1/npm/node_modules/meteor-promise/fiber_pool.js" />
+        <item url="file://$USER_HOME$/.meteor/packages/promise/0.5.1/npm/node_modules/meteor-promise/promise.bundle.js" />
+        <item url="file://$USER_HOME$/.meteor/packages/ddp-server/1.2.2/npm/node_modules/sockjs/index.js" />
         <item url="file://$USER_HOME$/.meteor/packages/ddp-server/1.2.2/npm/node_modules/sockjs/lib/sockjs.js" />
         <item url="file://$USER_HOME$/.meteor/packages/ddp-server/1.2.2/npm/node_modules/sockjs/lib/trans-websocket.js" />
         <item url="file://$USER_HOME$/.meteor/packages/ddp-server/1.2.2/npm/node_modules/sockjs/lib/trans-jsonp.js" />
@@ -212,16 +219,16 @@
         <item url="file://$USER_HOME$/.meteor/packages/ddp-client/1.2.1/npm/node_modules/permessage-deflate/lib/client_session.js" />
         <item url="file://$USER_HOME$/.meteor/packages/ddp-client/1.2.1/npm/node_modules/permessage-deflate/lib/server_session.js" />
         <item url="file://$USER_HOME$/.meteor/packages/ddp-client/1.2.1/npm/node_modules/permessage-deflate/lib/session.js" />
-        <item url="file://$USER_HOME$/.meteor/packages/promise/0.5.1/npm/node_modules/meteor-promise/webpack.config.js" />
-        <item url="file://$USER_HOME$/.meteor/packages/promise/0.5.1/npm/node_modules/meteor-promise/promise.js" />
-        <item url="file://$USER_HOME$/.meteor/packages/promise/0.5.1/npm/node_modules/meteor-promise/promise_server.js" />
-        <item url="file://$USER_HOME$/.meteor/packages/promise/0.5.1/npm/node_modules/meteor-promise/promise_client.js" />
-        <item url="file://$USER_HOME$/.meteor/packages/promise/0.5.1/npm/node_modules/meteor-promise/fiber_pool.js" />
-        <item url="file://$USER_HOME$/.meteor/packages/promise/0.5.1/npm/node_modules/meteor-promise/promise.bundle.js" />
-        <item url="file://$USER_HOME$/.meteor/packages/ddp-server/1.2.2/npm/node_modules/sockjs/index.js" />
       </sourceFilesUrls>
     </properties>
     <CLASSES>
+      <root url="file://$USER_HOME$/.meteor/packages/promise/0.5.1/npm/node_modules/meteor-promise/webpack.config.js" />
+      <root url="file://$USER_HOME$/.meteor/packages/promise/0.5.1/npm/node_modules/meteor-promise/promise.js" />
+      <root url="file://$USER_HOME$/.meteor/packages/promise/0.5.1/npm/node_modules/meteor-promise/promise_server.js" />
+      <root url="file://$USER_HOME$/.meteor/packages/promise/0.5.1/npm/node_modules/meteor-promise/promise_client.js" />
+      <root url="file://$USER_HOME$/.meteor/packages/promise/0.5.1/npm/node_modules/meteor-promise/fiber_pool.js" />
+      <root url="file://$USER_HOME$/.meteor/packages/promise/0.5.1/npm/node_modules/meteor-promise/promise.bundle.js" />
+      <root url="file://$USER_HOME$/.meteor/packages/ddp-server/1.2.2/npm/node_modules/sockjs/index.js" />
       <root url="file://$USER_HOME$/.meteor/packages/ddp-server/1.2.2/npm/node_modules/sockjs/lib/sockjs.js" />
       <root url="file://$USER_HOME$/.meteor/packages/ddp-server/1.2.2/npm/node_modules/sockjs/lib/trans-websocket.js" />
       <root url="file://$USER_HOME$/.meteor/packages/ddp-server/1.2.2/npm/node_modules/sockjs/lib/trans-jsonp.js" />
@@ -432,13 +439,6 @@
       <root url="file://$USER_HOME$/.meteor/packages/ddp-client/1.2.1/npm/node_modules/permessage-deflate/lib/client_session.js" />
       <root url="file://$USER_HOME$/.meteor/packages/ddp-client/1.2.1/npm/node_modules/permessage-deflate/lib/server_session.js" />
       <root url="file://$USER_HOME$/.meteor/packages/ddp-client/1.2.1/npm/node_modules/permessage-deflate/lib/session.js" />
-      <root url="file://$USER_HOME$/.meteor/packages/promise/0.5.1/npm/node_modules/meteor-promise/webpack.config.js" />
-      <root url="file://$USER_HOME$/.meteor/packages/promise/0.5.1/npm/node_modules/meteor-promise/promise.js" />
-      <root url="file://$USER_HOME$/.meteor/packages/promise/0.5.1/npm/node_modules/meteor-promise/promise_server.js" />
-      <root url="file://$USER_HOME$/.meteor/packages/promise/0.5.1/npm/node_modules/meteor-promise/promise_client.js" />
-      <root url="file://$USER_HOME$/.meteor/packages/promise/0.5.1/npm/node_modules/meteor-promise/fiber_pool.js" />
-      <root url="file://$USER_HOME$/.meteor/packages/promise/0.5.1/npm/node_modules/meteor-promise/promise.bundle.js" />
-      <root url="file://$USER_HOME$/.meteor/packages/ddp-server/1.2.2/npm/node_modules/sockjs/index.js" />
     </CLASSES>
     <SOURCES />
   </library>

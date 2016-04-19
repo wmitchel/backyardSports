@@ -16,7 +16,7 @@ initializeMap = function() {
 			zoom: 15,
 		});
 		var infoWindow = new google.maps.InfoWindow({map: map});
-		var service = new google.maps.places.PlacesService(map);
+		//var service = new google.maps.places.PlacesService(map);
 		//console.log("Nice Prep work");
 	} else {
 		var map = new google.maps.Map(document.getElementById('map'), {
@@ -24,7 +24,7 @@ initializeMap = function() {
 			zoom: 6
 		});
 		var infoWindow = new google.maps.InfoWindow({map: map});
-		var service = new google.maps.places.PlacesService(map);
+		//var service = new google.maps.places.PlacesService(map);
 
 	  // Try HTML5 geolocation.
 	  if (navigator.geolocation) {

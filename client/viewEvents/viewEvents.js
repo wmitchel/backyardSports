@@ -125,5 +125,7 @@ Template.dialog.events({
 
 Template.dialog.onCreated(function(){
 	let id = Session.get("detailId");
+	let date = moment().toDate();
+	this.subscribe('upcomingGames', date);
 	this.subscribe('comments', id);
 });
