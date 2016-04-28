@@ -1,26 +1,33 @@
 <template name="userEvents">
 	<div class="container">
-		<div class="row">
-			<h4 class="text-center">All games that you have attended and will be attending.</h4>
-			<table class="table table-hover">
-				<thead>
-					<tr>
-						<th>Title</th>
-						<th>Date</th>
-						<th>Details</th>
-					</tr>
-				</thead>
-				<tbody>
-					{{#each event in events}}
-						<tr>
-							<td>{{event.title}}</td>
-							<td>{{formatDate event.date}}</td>
-							<td><button class="details btn btn-info" id="{{event._id}}">Details</button></td>
-						</tr>
-					{{/each}}
-				</tbody>
-			</table>
-		</div>
+        <div class="row">
+            <h5 class="text-center">All games that you have attended and will be attending.</h5>
+            <hr size="2">
+            <div class="panel-group" id="accordion">
+                {{#each event in events}}
+                <div class="panel panel-success">
+                    <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" data-target="#collapse{{@index}}">
+                        <h4 class="panel-title accordion-toggle">
+                            {{event.title}}
+                        </h4>
+                        <h5>
+                            {{formatDate event.date}}
+                        </h5>
+                    </div>
+                    <div id="collapse{{@index}}" class="panel-collapse collapse">
+                        <div class="panel-body">
+                            <div class="col-xs-3">
+                                {{formatDate event.date}}
+                            </div>
+                            <div class="col-xs-3 text-center col-xs-offset-6">
+                                <button class="details btn btn-info" id="{{event._id}}">Details</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {{/each}}
+            </div>
+        </div>
 		<div class="col-md-10 col-xs-8">
 			{{#if viewingEvent}}
 				{{>dialog}}

@@ -8,7 +8,9 @@ $color_modal_writing: #FFFFFF;
 $color_login_background: #2C3E50;
 $color_login_border: #999999;
 
-
+@import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,700italic);
+@import url(https://fonts.googleapis.com/css?family=Ubuntu:400,700);
+// @import url('//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css');
 //fonts
 $font_stack: Ubuntu, sans-serif;
 $font_0: 'Ubuntu';
@@ -17,6 +19,11 @@ $font_1: 'sans-serif';
 //urls
 $gradient_background: url('/background.jpg');
 $url_1: url('jumbotron-bg.png');
+
+* {
+    font-family: 'Droid Serif', serif;
+    // font-family: 'Ubuntu', sans-serif;
+}
 
 //Background
 body {
@@ -29,6 +36,11 @@ td, th {
 	text-align: center;
 }
 
+.row {
+    margin-left: auto;
+    margin-right: auto;
+}
+
 
 //Navigation
 .navbar-default {
@@ -36,6 +48,9 @@ td, th {
 	.navbar-brand {
 		color: $color_nav_writing;
 		font-size: 2.7rem;
+        @media screen and (max-width: 350px) {
+            font-size: 2.5rem;
+        }
 		font-weight: bolder;
 		vertical-align: center;
 	}
@@ -68,7 +83,7 @@ td, th {
 //Content
 #content {
 	margin-top: 65px;
-	margin-left: 20px;
+	// margin-left: 20px;
 }
 
 //Logo
@@ -86,6 +101,23 @@ td, th {
 }
 
 //Event Detail Stylings
+.panel-heading {
+    cursor: pointer;
+}
+.details {
+    float: right;
+}
+.accordion-toggle:after {
+    font-family: 'FontAwesome';
+    content:"\f077";
+    float: right;
+    color: inherit;
+}
+.panel-heading.collapsed .accordion-toggle:after {
+    /* symbol for "collapsed" panels */
+    content:"\f078";
+}
+
 .eventInfo {
 	text-align: center;
 }

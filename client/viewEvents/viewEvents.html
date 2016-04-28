@@ -3,59 +3,83 @@
 		<div class="row gameList">
 			<h4 class="text-center">Take a look at all upcoming games.</h4>
 
-			<div class="row">
-				<h5>Today's Games</h5>
-				<hr size="2">
-				{{#each event in todaysEvents}}
-					<div class="row">
-						<div class="col-xs-3 col-xs-offset-1 text-center">
-							{{event.title}}
-						</div>
-						<div class="col-xs-3 col-xs-offset-1 text-center">
-							{{formatDate event.date}}
-						</div>
-						<div class="col-xs-3 text-center">
-							<button class="details btn btn-info" id="{{event._id}}">Details</button>
-						</div>
-					</div>
-				{{/each}}
-			</div>
-			
-			<div class="row">
-				<h5>Tomorrow's Games</h5>
-				<hr size="2">
-				{{#each event in tomorrowsEvents}}
-					<div class="row">
-						<div class="col-xs-3 col-xs-offset-1 text-center">
-							{{event.title}}
-						</div>
-						<div class="col-xs-3 col-xs-offset-1 text-center">
-							{{formatDate event.date}}
-						</div>
-						<div class="col-xs-3 text-center">
-							<button class="details btn btn-info" id="{{event._id}}">Details</button>
-						</div>
-					</div>
-				{{/each}}
-			</div>
+            <div class="row">
+                <h5>Today's Games</h5>
+                <hr size="2">
+                <div class="panel-group" id="accordion">
+                    {{#each event in todaysEvents}}
+                    <div class="panel panel-success">
+                        <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" data-target="#collapse{{@index}}">
+                            <h4 class="panel-title accordion-toggle">
+                                {{event.title}}
+                            </h4>
+                        </div>
+                        <div id="collapse{{@index}}" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                <div class="col-xs-3">
+                                    {{formatDate event.date}}
+                                </div>
+                                <div class="col-xs-3 text-center col-xs-offset-6">
+        							<button class="details btn btn-info" id="{{event._id}}">Details</button>
+        						</div>
+                            </div>
+                        </div>
+                    </div>
+                    {{/each}}
+                </div>
+            </div>
 
-			<div class="row">
-				<h5>Upcoming Games</h5>
-				<hr size="2">
-				{{#each event in upcomingEvents}}
-					<div class="row">
-						<div class="col-xs-3 col-xs-offset-1 text-center">
-							{{event.title}}
-						</div>
-						<div class="col-xs-3 col-xs-offset-1 text-center">
-							{{formatDate event.date}}
-						</div>
-						<div class="col-xs-3 text-center">
-							<button class="details btn btn-info" id="{{event._id}}">Details</button>
-						</div>
-					</div>
-				{{/each}}
-			</div>
+            <div class="row">
+                <h5>Tomorrow's Games</h5>
+                <hr size="2">
+                <div class="panel-group" id="accordion">
+                    {{#each event in tomorrowsEvents}}
+                    <div class="panel panel-success">
+                        <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" data-target="#collapse{{@index}}">
+                            <h4 class="panel-title accordion-toggle">
+                                {{event.title}}
+                            </h4>
+                        </div>
+                        <div id="collapse{{@index}}" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                <div class="col-xs-3">
+                                    {{formatDate event.date}}
+                                </div>
+                                <div class="col-xs-3 text-center col-xs-offset-6">
+        							<button class="details btn btn-info" id="{{event._id}}">Details</button>
+        						</div>
+                            </div>
+                        </div>
+                    </div>
+                    {{/each}}
+                </div>
+            </div>
+
+            <div class="row">
+                <h5>Upcoming Games</h5>
+                <hr size="2">
+                <div class="panel-group" id="accordion">
+                    {{#each event in upcomingEvents}}
+                    <div class="panel panel-success">
+                        <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" data-target="#collapse{{@index}}">
+                            <h4 class="panel-title accordion-toggle">
+                                {{event.title}}
+                            </h4>
+                        </div>
+                        <div id="collapse{{@index}}" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                <div class="col-xs-3">
+                                    {{formatDate event.date}}
+                                </div>
+                                <div class="col-xs-3 text-center col-xs-offset-6">
+        							<button class="details btn btn-info" id="{{event._id}}">Details</button>
+        						</div>
+                            </div>
+                        </div>
+                    </div>
+                    {{/each}}
+                </div>
+            </div>
 		</div>
 		<div class="col-md-10 col-xs-8">
 			{{#if viewingEvent}}
@@ -67,7 +91,7 @@
 
 <template name="dialog">
 	<div class="modal fade in show" tabindex="-1" role="dialog" aria-hidden="true">
-		<div class="modal-dialog">
+		<div class="modal-dialog" role="document">
 			<div class="modal-content">
 				<div class="modal-header">
 					<button type="button" class="close closeDialog" data-dismiss="modal" aria-hidden="true">&times;</button>
