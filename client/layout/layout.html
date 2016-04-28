@@ -31,7 +31,9 @@
 								<button class="btn btn-primary dropdown-toggle btn-block outline" type="button" data-toggle="dropdown">View<span class="caret"></span></button>
 								<ul class="dropdown-menu">
 									<li><a href="{{pathFor route='userEvents'}}">Your Games</a></li>
+                                    <li role="separator" class="divider"></li>
 									<li><a href="{{pathFor route='viewEvents'}}">All Games</a></li>
+                                    <li role="separator" class="divider"></li>
 									<li><a href="{{pathFor route='places'}}">Map</a></li>
 								</ul>
 							</li>
@@ -47,6 +49,7 @@
                                     <li><button class="btn btn-danger outline" id="clearNotifications">Clear Notifications</button></li>
                                     {{#each notification in notifications}}
                                         <li class="notificationList notifPath" id="{{notification.gameId}}"><a href="#"> <i class="{{notification.logo}}"></i>{{notification.message}}</a></li>
+                                        <li role="separator" class="divider"></li>
                                     {{/each}}
                                 </ul>
                             </li>

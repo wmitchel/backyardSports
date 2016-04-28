@@ -91,6 +91,7 @@ srp@1.0.4
 standard-minifiers@1.0.2
 templating@1.1.5
 templating-tools@1.0.0
+themeteorchef:jquery-validation@1.14.0
 tracker@1.0.9
 tsega:bootstrap3-datetimepicker@3.1.3_3
 twbs:bootstrap@3.3.6

@@ -1,29 +1,34 @@
 <template name="newEvent">
 	<form id="newEventForm" role="form" class="col-md-6">
-
-		<label>Title</label>
-		<input id="eventTitle" class="form-control" type="text" placeholder="Give 'er a name." required>
-
-		<label>Date</label>
-		<div class="input-group datetimepicker">
-			<span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
-			<input id="eventDate" class="set-due-date form-control" type="text"/>
-		</div>
-
-        <label>Location</label>
-        <div id="locationField">
-            <input id="autocomplete" placeholder="Game's Street Address" type="text" class="form-control">
+        <div class="form-group">
+            <label>Title</label>
+            <input id="eventTitle" name="eventTitle" class="form-control required" type="text" placeholder="Give 'er a name.">
         </div>
 
-		<label>Brief Summary</label>
-		<input id="eventSummary" class="form-control" type="text" placeholder="What's going to happen?">
+        <div class="form-group">
+            <label>Date</label>
+            <input id="eventDate" name="eventDate" class="set-due-date form-control datetimepicker required" type="text">
+        </div>
 
-		<label>Sport</label>
-		<select class="form-control" id="eventSport">
-			{{#each index in options}}
-				<option value="{{index.value}}">{{index.value}}</option>
-			{{/each}}
-		</select>
+        <div id="locationField" class="form-group">
+            <label>Location</label>
+            <input id="autocomplete" name="eventLocation" placeholder="Game's Street Address" type="text" class="form-control required">
+        </div>
+
+        <div class="form-group">
+            <label>Brief Summary</label>
+            <input id="eventSummary" name="summary" class="form-control required" type="text" placeholder="What's going to happen?">
+        </div>
+
+        <div class="form-group">
+    		<label>Sport</label>
+    		<select class="form-control" id="eventSport">
+    			{{#each index in options}}
+    				<option value="{{index.value}}">{{index.value}}</option>
+    			{{/each}}
+    		</select>
+        </div>
+        
 		<input type="submit" id="insertAssignment" value="Create Event" class="btn btn-default centerBlock"/>
 	</form>
 </template>
