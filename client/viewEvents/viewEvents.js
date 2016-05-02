@@ -1,6 +1,7 @@
 Template.viewEvents.onCreated(function(){
 	let date = moment().toDate();
 	this.subscribe('upcomingGames', date);
+    Meteor.call('geocode');
 });
 
 Template.viewEvents.helpers({
@@ -16,8 +17,8 @@ Template.viewEvents.helpers({
 		let endOfTomorrow = moment().add(1, 'days').endOf('day').toDate();
 		let endOfToday = moment().endOf('day').toDate();
 		let games = Games.find({ $and: [
-			{'date': {$lt: endOfTomorrow}}, 
-			{'date': {$gte: endOfToday}}]}, 
+			{'date': {$lt: endOfTomorrow}},
+			{'date': {$gte: endOfToday}}]},
 			{sort: {'date': 1}});
 		return games;
 
@@ -26,7 +27,10 @@ Template.viewEvents.helpers({
 		let endOfTomorrow = moment().add(1, 'days').endOf('day').toDate();
 		let games = Games.find({'date': {$gte: endOfTomorrow}});
 		return games;
-	}
+	},
+    closestEvents: function() {
+
+    }
 });
 
 Template.viewEvents.events({
@@ -40,6 +44,10 @@ Template.viewEvents.events({
 Template.registerHelper('formatDate', function(date) {
 	return moment(date).format('ddd-MM-DD');
 });
+
+Template.registerHelper('formatTime', function(time) {
+    return moment(time).format('h:mm a');
+})
 
 Template.registerHelper('formatDetail', function(date) {
 	return moment(date).format('llll');

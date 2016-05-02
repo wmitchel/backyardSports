@@ -1,10 +1,10 @@
 <template name="viewEvents">
 	<div class="container">
 		<div class="row gameList">
-			<h4 class="text-center">Take a look at all upcoming games.</h4>
+			<h1 class="text-center">Take a look at all upcoming games.</h1>
 
             <div class="row">
-                <h5>Today's Games</h5>
+                <h3>Today's Games</h3>
                 <hr size="2">
                 <div class="panel-group" id="accordion">
                     {{#each event in todaysEvents}}
@@ -13,6 +13,9 @@
                             <h4 class="panel-title accordion-toggle">
                                 {{event.title}}
                             </h4>
+                            <h5>
+                                {{formatTime event.date}}
+                            </h5>
                         </div>
                         <div id="collapse{{@index}}" class="panel-collapse collapse">
                             <div class="panel-body">
@@ -30,7 +33,7 @@
             </div>
 
             <div class="row">
-                <h5>Tomorrow's Games</h5>
+                <h3>Tomorrow's Games</h3>
                 <hr size="2">
                 <div class="panel-group" id="accordion">
                     {{#each event in tomorrowsEvents}}
@@ -56,7 +59,7 @@
             </div>
 
             <div class="row">
-                <h5>Upcoming Games</h5>
+                <h3>Upcoming Games</h3>
                 <hr size="2">
                 <div class="panel-group" id="accordion">
                     {{#each event in upcomingEvents}}

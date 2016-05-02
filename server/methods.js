@@ -101,5 +101,11 @@ Meteor.methods({
     },
     setNotifViewed: function ( user, game ) {
         Notifications.update( { $and: [{ recieverUsername : user }, { gameId : game }]}, { $set: {read: true}}, {multi: true} );
+    },
+    geocode: function() {
+        Games._ensureIndex({
+            'location': "2dsphere"
+        });
+        console.log("Created a 2dsphere Index");
     }
 });
