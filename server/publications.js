@@ -13,3 +13,7 @@ Meteor.publish("comments", function(id) {
 Meteor.publish("notifications", function(id) {
    return Notifications.find({recieverUsername: id});
 });
+
+Meteor.publish("allGames", function(){
+    return Games.find();
+});

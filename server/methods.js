@@ -107,5 +107,20 @@ Meteor.methods({
             'location': "2dsphere"
         });
         console.log("Created a 2dsphere Index");
+    },
+    gamesList: function(lat, lng) {
+        let games = Games.find({
+            location: {
+                $near: {
+                    $geometry: {
+                        type: "Point",
+                        coordinates: [lng, lat]
+                    },
+                    $maxDistance: 10000
+                }
+            }
+        }).fetch();
+        console.log(games);
+        return games;
     }
 });

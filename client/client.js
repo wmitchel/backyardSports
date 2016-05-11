@@ -4,7 +4,7 @@ Meteor.startup(function(){
 			navigator.geolocation.getCurrentPosition(function(position){
 				Session.set('longitude', position.coords.longitude);
 				Session.set('latitude', position.coords.latitude);
-				console.log(position.coords.longitude + ", " + position.coords.latitude);
+				console.log(position.coords.longitude + ", " + position.coords.latitude + " client.js tracker autorun");
 			});
 		} else {
 			console.log("Still waiting on your location");

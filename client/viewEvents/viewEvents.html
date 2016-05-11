@@ -20,7 +20,7 @@
                         <div id="collapse{{@index}}" class="panel-collapse collapse">
                             <div class="panel-body">
                                 <div class="col-xs-3">
-                                    {{formatDate event.date}}
+                                    {{event.summary}}
                                 </div>
                                 <div class="col-xs-3 text-center col-xs-offset-6">
         							<button class="details btn btn-info" id="{{event._id}}">Details</button>
@@ -38,15 +38,18 @@
                 <div class="panel-group" id="accordion">
                     {{#each event in tomorrowsEvents}}
                     <div class="panel panel-success">
-                        <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" data-target="#collapse{{@index}}">
+                        <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" data-target="#collapse2{{@index}}">
                             <h4 class="panel-title accordion-toggle">
                                 {{event.title}}
                             </h4>
+                            <h5>
+                                {{formatTime event.date}}
+                            </h5>
                         </div>
-                        <div id="collapse{{@index}}" class="panel-collapse collapse">
+                        <div id="collapse2{{@index}}" class="panel-collapse collapse">
                             <div class="panel-body">
                                 <div class="col-xs-3">
-                                    {{formatDate event.date}}
+                                    {{event.summary}}
                                 </div>
                                 <div class="col-xs-3 text-center col-xs-offset-6">
         							<button class="details btn btn-info" id="{{event._id}}">Details</button>
@@ -63,6 +66,35 @@
                 <hr size="2">
                 <div class="panel-group" id="accordion">
                     {{#each event in upcomingEvents}}
+                    <div class="panel panel-success">
+                        <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" data-target="#collapse3{{@index}}">
+                            <h4 class="panel-title accordion-toggle">
+                                {{event.title}}
+                            </h4>
+                            <h5>
+                                {{formatTime event.date}}
+                            </h5>
+                        </div>
+                        <div id="collapse3{{@index}}" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                <div class="col-xs-3">
+                                    {{event.summary}}
+                                </div>
+                                <div class="col-xs-3 text-center col-xs-offset-6">
+        							<button class="details btn btn-info" id="{{event._id}}">Details</button>
+        						</div>
+                            </div>
+                        </div>
+                    </div>
+                    {{/each}}
+                </div>
+            </div>
+
+            <!-- <div class="row">
+                <h3>Closest Games</h3>
+                <hr size="2">
+                <div class="panel-group" id="accordion">
+                    {{#each event in closestEvents}}
                     <div class="panel panel-success">
                         <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" data-target="#collapse{{@index}}">
                             <h4 class="panel-title accordion-toggle">
@@ -82,7 +114,8 @@
                     </div>
                     {{/each}}
                 </div>
-            </div>
+            </div> -->
+
 		</div>
 		<div class="col-md-10 col-xs-8">
 			{{#if viewingEvent}}
