@@ -29,7 +29,19 @@ Template.viewEvents.helpers({
 		return games;
 	},
     closestEvents: function() {
-
+        if (Session.get('longitude') && Session.get('latitude')){
+            let games = Games.find({
+                address: {
+                    $near: {
+                        $geometry: {
+                            type: "Point",
+                            coordinates: [Session.get('longitude'), Session.get('latitude')]
+                        },
+                        $maxDistance: 1000
+                    }
+                }
+            }).fetch();
+    	}
     }
 });
 
